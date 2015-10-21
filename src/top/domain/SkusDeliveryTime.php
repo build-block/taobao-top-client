@@ -1,4 +1,6 @@
-<?php namespace TopClient\domain;
+<?php
+
+namespace TopClient\domain;
 
 /**
  * sku物流信息
@@ -6,15 +8,16 @@
  */
 class SkusDeliveryTime
 {
-	
-	/** 
-	 * sku时间
-	 **/
-	public $skuDeliveryTime;
-	
-	/** 
-	 * 商品skuId
-	 **/
-	public $skuId;	
+
+    /**
+     * sku时间
+     **/
+    public $skuDeliveryTime;
+
+    /**
+     * 商品skuId
+     **/
+    public $skuId;
 }
+
 ?>

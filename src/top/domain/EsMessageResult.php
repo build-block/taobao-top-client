@@ -1,4 +1,6 @@
-<?php namespace TopClient\domain;
+<?php
+
+namespace TopClient\domain;
 
 /**
  * 应用消息查询结果
@@ -6,15 +8,16 @@
  */
 class EsMessageResult
 {
-	
-	/** 
-	 * 消息序列
-	 **/
-	public $messages;
-	
-	/** 
-	 * nextkey
-	 **/
-	public $nextKey;	
+
+    /**
+     * 消息序列
+     **/
+    public $messages;
+
+    /**
+     * nextkey
+     **/
+    public $nextKey;
 }
+
 ?>

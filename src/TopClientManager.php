@@ -1,13 +1,16 @@
 <?php
+
 namespace Remxcode\TopClient;
 
-use Remxcode\TopClient\Factories\TopClientFactory;
 use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
+use Remxcode\TopClient\Factories\TopClientFactory;
 
 class TopClientManager extends AbstractManager
 {
+
     protected $factory;
+
 
     public function __construct(Repository $config, TopClientFactory $factory)
     {
@@ -15,15 +18,18 @@ class TopClientManager extends AbstractManager
         $this->factory = $factory;
     }
 
+
     protected function createConnection(array $config)
     {
         return $this->factory->make($config);
     }
 
+
     protected function getConfigName()
     {
         return 'taobaotop';
     }
+
 
     public function getFactory()
     {

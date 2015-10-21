@@ -1,4 +1,6 @@
-<?php namespace TopClient\domain;
+<?php
+
+namespace TopClient\domain;
 
 /**
  * 发送结果
@@ -6,10 +8,11 @@
  */
 class SendMessageResult
 {
-	
-	/** 
-	 * 发送的唯一号
-	 **/
-	public $taskId;	
+
+    /**
+     * 发送的唯一号
+     **/
+    public $taskId;
 }
+
 ?>

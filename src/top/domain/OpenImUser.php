@@ -1,4 +1,6 @@
-<?php namespace TopClient\domain;
+<?php
+
+namespace TopClient\domain;
 
 /**
  * 用户信息
@@ -6,20 +8,21 @@
  */
 class OpenImUser
 {
-	
-	/** 
-	 * 账户appkey
-	 **/
-	public $appKey;
-	
-	/** 
-	 * 是否为淘宝账号
-	 **/
-	public $taobaoAccount;
-	
-	/** 
-	 * 用户id
-	 **/
-	public $uid;	
+
+    /**
+     * 账户appkey
+     **/
+    public $appKey;
+
+    /**
+     * 是否为淘宝账号
+     **/
+    public $taobaoAccount;
+
+    /**
+     * 用户id
+     **/
+    public $uid;
 }
+
 ?>

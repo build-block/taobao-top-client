@@ -1,4 +1,6 @@
-<?php namespace TopClient\domain;
+<?php
+
+namespace TopClient\domain;
 
 /**
  * 店铺类目
@@ -6,25 +8,26 @@
  */
 class ShopCat
 {
-	
-	/** 
-	 * 类目编号
-	 **/
-	public $cid;
-	
-	/** 
-	 * 该类目是否为父类目。即：该类目是否还有子类目
-	 **/
-	public $isParent;
-	
-	/** 
-	 * 类目名称
-	 **/
-	public $name;
-	
-	/** 
-	 * 父类目编号，注：此类目指前台类目，值等于0：表示此类目为一级类目，值不等于0：表示此类目有父类目
-	 **/
-	public $parentCid;	
+
+    /**
+     * 类目编号
+     **/
+    public $cid;
+
+    /**
+     * 该类目是否为父类目。即：该类目是否还有子类目
+     **/
+    public $isParent;
+
+    /**
+     * 类目名称
+     **/
+    public $name;
+
+    /**
+     * 父类目编号，注：此类目指前台类目，值等于0：表示此类目为一级类目，值不等于0：表示此类目有父类目
+     **/
+    public $parentCid;
 }
+
 ?>

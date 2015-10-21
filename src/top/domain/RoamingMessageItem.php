@@ -1,4 +1,6 @@
-<?php namespace TopClient\domain;
+<?php
+
+namespace TopClient\domain;
 
 /**
  * 消息节点
@@ -6,15 +8,16 @@
  */
 class RoamingMessageItem
 {
-	
-	/** 
-	 * 节点类型
-	 **/
-	public $type;
-	
-	/** 
-	 * 值
-	 **/
-	public $value;	
+
+    /**
+     * 节点类型
+     **/
+    public $type;
+
+    /**
+     * 值
+     **/
+    public $value;
 }
+
 ?>

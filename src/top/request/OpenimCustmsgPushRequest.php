@@ -1,47 +1,58 @@
-<?php namespace TopClient\request;
+<?php
+
+namespace TopClient\request;
+
 /**
  * TOP API: taobao.openim.custmsg.push request
- * 
+ *
  * @author auto create
- * @since 1.0, 2015.08.24
+ * @since  1.0, 2015.08.24
  */
 class OpenimCustmsgPushRequest
 {
-	/** 
+
+	/**
 	 * 自定义消息内容
 	 **/
 	private $custmsg;
-	
-	private $apiParas = array();
-	
-	public function setCustmsg($custmsg)
-	{
-		$this->custmsg = $custmsg;
-		$this->apiParas["custmsg"] = $custmsg;
-	}
+
+	private $apiParas = [ ];
+
 
 	public function getCustmsg()
 	{
 		return $this->custmsg;
 	}
 
+
+	public function setCustmsg($custmsg)
+	{
+		$this->custmsg             = $custmsg;
+		$this->apiParas["custmsg"] = $custmsg;
+	}
+
+
 	public function getApiMethodName()
 	{
 		return "taobao.openim.custmsg.push";
 	}
-	
+
+
 	public function getApiParas()
 	{
 		return $this->apiParas;
 	}
-	
+
+
 	public function check()
 	{
-		
+
 	}
-	
-	public function putOtherTextParam($key, $value) {
+
+
+	public function putOtherTextParam($key, $value)
+	{
 		$this->apiParas[$key] = $value;
-		$this->$key = $value;
+		$this->$key           = $value;
 	}
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Facade;
 
 class TopClient extends Facade
 {
+
     /**
      * Get the registered name of the component.
      *

@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     'default'     => 'app',
     'connections' => [
         'app' => [

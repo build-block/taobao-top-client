@@ -1,65 +1,78 @@
-<?php namespace TopClient\request;
+<?php
+
+namespace TopClient\request;
+
 /**
  * TOP API: taobao.product.img.delete request
- * 
+ *
  * @author auto create
- * @since 1.0, 2012.10.15
+ * @since  1.0, 2012.10.15
  */
 class ProductImgDeleteRequest
 {
-	/** 
+
+	/**
 	 * 非主图ID
 	 **/
 	private $id;
-	
-	/** 
+
+	/**
 	 * 产品ID.Product的id,通过taobao.product.add接口新增产品的时候会返回id.
 	 **/
 	private $productId;
-	
-	private $apiParas = array();
-	
-	public function setId($id)
-	{
-		$this->id = $id;
-		$this->apiParas["id"] = $id;
-	}
+
+	private $apiParas = [ ];
+
 
 	public function getId()
 	{
 		return $this->id;
 	}
 
-	public function setProductId($productId)
+
+	public function setId($id)
 	{
-		$this->productId = $productId;
-		$this->apiParas["product_id"] = $productId;
+		$this->id             = $id;
+		$this->apiParas["id"] = $id;
 	}
+
 
 	public function getProductId()
 	{
 		return $this->productId;
 	}
 
+
+	public function setProductId($productId)
+	{
+		$this->productId              = $productId;
+		$this->apiParas["product_id"] = $productId;
+	}
+
+
 	public function getApiMethodName()
 	{
 		return "taobao.product.img.delete";
 	}
-	
+
+
 	public function getApiParas()
 	{
 		return $this->apiParas;
 	}
-	
+
+
 	public function check()
 	{
-		
-		RequestCheckUtil::checkNotNull($this->id,"id");
-		RequestCheckUtil::checkNotNull($this->productId,"productId");
+
+		RequestCheckUtil::checkNotNull($this->id, "id");
+		RequestCheckUtil::checkNotNull($this->productId, "productId");
 	}
-	
-	public function putOtherTextParam($key, $value) {
+
+
+	public function putOtherTextParam($key, $value)
+	{
 		$this->apiParas[$key] = $value;
-		$this->$key = $value;
+		$this->$key           = $value;
 	}
 }

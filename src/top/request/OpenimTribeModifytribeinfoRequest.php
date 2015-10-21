@@ -1,98 +1,115 @@
-<?php namespace TopClient\request;
+<?php
+
+namespace TopClient\request;
+
 /**
  * TOP API: taobao.openim.tribe.modifytribeinfo request
- * 
+ *
  * @author auto create
- * @since 1.0, 2015.08.26
+ * @since  1.0, 2015.08.26
  */
 class OpenimTribeModifytribeinfoRequest
 {
-	/** 
+
+	/**
 	 * 群公告
 	 **/
 	private $notice;
-	
-	/** 
+
+	/**
 	 * 群id
 	 **/
 	private $tribeId;
-	
-	/** 
+
+	/**
 	 * 群名称
 	 **/
 	private $tribeName;
-	
-	/** 
+
+	/**
 	 * 用户信息
 	 **/
 	private $user;
-	
-	private $apiParas = array();
-	
-	public function setNotice($notice)
-	{
-		$this->notice = $notice;
-		$this->apiParas["notice"] = $notice;
-	}
+
+	private $apiParas = [ ];
+
 
 	public function getNotice()
 	{
 		return $this->notice;
 	}
 
-	public function setTribeId($tribeId)
+
+	public function setNotice($notice)
 	{
-		$this->tribeId = $tribeId;
-		$this->apiParas["tribe_id"] = $tribeId;
+		$this->notice             = $notice;
+		$this->apiParas["notice"] = $notice;
 	}
+
 
 	public function getTribeId()
 	{
 		return $this->tribeId;
 	}
 
-	public function setTribeName($tribeName)
+
+	public function setTribeId($tribeId)
 	{
-		$this->tribeName = $tribeName;
-		$this->apiParas["tribe_name"] = $tribeName;
+		$this->tribeId              = $tribeId;
+		$this->apiParas["tribe_id"] = $tribeId;
 	}
+
 
 	public function getTribeName()
 	{
 		return $this->tribeName;
 	}
 
-	public function setUser($user)
+
+	public function setTribeName($tribeName)
 	{
-		$this->user = $user;
-		$this->apiParas["user"] = $user;
+		$this->tribeName              = $tribeName;
+		$this->apiParas["tribe_name"] = $tribeName;
 	}
+
 
 	public function getUser()
 	{
 		return $this->user;
 	}
 
+
+	public function setUser($user)
+	{
+		$this->user             = $user;
+		$this->apiParas["user"] = $user;
+	}
+
+
 	public function getApiMethodName()
 	{
 		return "taobao.openim.tribe.modifytribeinfo";
 	}
-	
+
+
 	public function getApiParas()
 	{
 		return $this->apiParas;
 	}
-	
+
+
 	public function check()
 	{
-		
-		RequestCheckUtil::checkNotNull($this->notice,"notice");
-		RequestCheckUtil::checkNotNull($this->tribeId,"tribeId");
-		RequestCheckUtil::checkNotNull($this->tribeName,"tribeName");
+
+		RequestCheckUtil::checkNotNull($this->notice, "notice");
+		RequestCheckUtil::checkNotNull($this->tribeId, "tribeId");
+		RequestCheckUtil::checkNotNull($this->tribeName, "tribeName");
 	}
-	
-	public function putOtherTextParam($key, $value) {
+
+
+	public function putOtherTextParam($key, $value)
+	{
 		$this->apiParas[$key] = $value;
-		$this->$key = $value;
+		$this->$key           = $value;
 	}
 }

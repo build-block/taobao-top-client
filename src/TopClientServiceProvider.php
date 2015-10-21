@@ -1,10 +1,13 @@
 <?php
+
 namespace Remxcode\TopClient;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 
-class TopClientServiceProvider extends ServiceProvider {
+class TopClientServiceProvider extends ServiceProvider
+{
+
     /**
      * Boot the service provider.
      *
@@ -14,6 +17,8 @@ class TopClientServiceProvider extends ServiceProvider {
     {
         $this->setupConfig();
     }
+
+
     /**
      * Setup the config.
      *
@@ -21,10 +26,12 @@ class TopClientServiceProvider extends ServiceProvider {
      */
     protected function setupConfig()
     {
-        $source = realpath(__DIR__.'/../config/taobaotop.php');
-        $this->publishes([$source => config_path('taobaotop.php')]);
+        $source = realpath(__DIR__ . '/../config/taobaotop.php');
+        $this->publishes([ $source => config_path('taobaotop.php') ]);
         $this->mergeConfigFrom($source, 'taobaotop');
     }
+
+
     /**
      * Register the service provider.
      *
@@ -35,6 +42,8 @@ class TopClientServiceProvider extends ServiceProvider {
         $this->registerFactory($this->app);
         $this->registerManager($this->app);
     }
+
+
     /**
      * Register the factory class.
      *
@@ -49,6 +58,8 @@ class TopClientServiceProvider extends ServiceProvider {
         });
         $app->alias('topclient.factory', 'Remxcode\TopClient\Factories\TopClientFactory');
     }
+
+
     /**
      * Register the manager class.
      *
@@ -59,12 +70,15 @@ class TopClientServiceProvider extends ServiceProvider {
     protected function registerManager(Application $app)
     {
         $app->singleton('topclient', function ($app) {
-            $config = $app['config'];
+            $config  = $app['config'];
             $factory = $app['topclient.factory'];
+
             return new TopClientManager($config, $factory);
         });
         $app->alias('topclient', 'Remxcode\TopClient\TopClientManager');
     }
+
+
     /**
      * Get the services provided by the provider.
      *

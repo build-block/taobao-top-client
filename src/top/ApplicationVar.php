@@ -1,45 +1,59 @@
 <?php
+
 namespace TopClient;
 
 class ApplicationVar
 {
+
 	var $save_file;
-	var $application  = null;
- 	var $app_data    = '';
- 	var $__writed    = false;
+
+	var $application = null;
+
+	var $app_data = '';
+
+	var $__writed = false;
+
 
 	function __construct()
- 	{
-    $this->save_file = __DIR__.'/httpdns.conf' ;
- 		$this->application = array();
- 	}
+	{
+		$this->save_file   = __DIR__ . '/httpdns.conf';
+		$this->application = [ ];
+	}
 
- 	public function setValue($var_name,$var_value)
-  {
-   		if (!is_string($var_name) || empty($var_name))
-    		return false;
-   
-   		$this->application[$var_name] = $var_value;
-  }
 
-  public function write(){
-      $this->app_data = @serialize($this->application);    
-      $this->__writeToFile();
-  }
+	public function setValue($var_name, $var_value)
+	{
+		if (! is_string($var_name) || empty( $var_name )) {
+			return false;
+		}
 
- 	public function getValue()
- 	{
-     	if (!is_file($this->save_file))
-        	 $this->__writeToFile();
-     	return @unserialize(@file_get_contents($this->save_file));
- 	}
+		$this->application[$var_name] = $var_value;
+	}
 
- 	function __writeToFile()
- 	{
-  		$fp = @fopen($this->save_file,"w");
-  		@fwrite($fp,$this->app_data);
-  		@fclose($fp);
- 	}
+
+	public function write()
+	{
+		$this->app_data = @serialize($this->application);
+		$this->__writeToFile();
+	}
+
+
+	function __writeToFile()
+	{
+		$fp = @fopen($this->save_file, "w");
+		@fwrite($fp, $this->app_data);
+		@fclose($fp);
+	}
+
+
+	public function getValue()
+	{
+		if (! is_file($this->save_file)) {
+			$this->__writeToFile();
+		}
+
+		return @unserialize(@file_get_contents($this->save_file));
+	}
 }
 
 ?>

@@ -1,107 +1,135 @@
 <?php
+
 namespace TopClient;
 
 /**
- * APIÈë²Î¾²Ì¬¼ì²éÀà
- * ¿ÉÒÔ¶ÔAPIµÄ²ÎÊýÀàÐÍ¡¢³¤¶È¡¢×î´óÖµµÈ½øÐÐÐ£Ñé
+ * APIï¿½ï¿½Î¾ï¿½Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½Ô¶ï¿½APIï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Öµï¿½È½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½
  *
  **/
 class RequestCheckUtil
 {
-	/**
-	 * Ð£Ñé×Ö¶Î fieldName µÄÖµ$value·Ç¿Õ
-	 *
-	 **/
-	public static function checkNotNull($value,$fieldName) {
-		
-		if(self::checkEmpty($value)){
-			throw new Exception("client-check-error:Missing Required Arguments: " .$fieldName , 40);
-		}
-	}
 
-	/**
-	 * ¼ìÑé×Ö¶ÎfieldNameµÄÖµvalue µÄ³¤¶È
-	 *
-	 **/
-	public static function checkMaxLength($value,$maxLength,$fieldName){		
-		if(!self::checkEmpty($value) && mb_strlen($value , "UTF-8") > $maxLength){
-			throw new Exception("client-check-error:Invalid Arguments:the length of " .$fieldName . " can not be larger than " . $maxLength . "." , 41);
-		}
-	}
+    /**
+     * Ð£ï¿½ï¿½ï¿½Ö¶ï¿½ fieldName ï¿½ï¿½Öµ$valueï¿½Ç¿ï¿½
+     *
+     **/
+    public static function checkNotNull($value, $fieldName)
+    {
 
-	/**
-	 * ¼ìÑé×Ö¶ÎfieldNameµÄÖµvalueµÄ×î´óÁÐ±í³¤¶È
-	 *
-	 **/
-	public static function checkMaxListSize($value,$maxSize,$fieldName) {	
+        if (self::checkEmpty($value)) {
+            throw new Exception("client-check-error:Missing Required Arguments: " . $fieldName, 40);
+        }
+    }
 
-		if(self::checkEmpty($value))
-			return ;
 
-		$list=preg_split("/,/",$value);
-		if(count($list) > $maxSize){
-				throw new Exception("client-check-error:Invalid Arguments:the listsize(the string split by \",\") of ". $fieldName . " must be less than " . $maxSize . " ." , 41);
-		}
-	}
+    /**
+     * Ð£ï¿½ï¿½$valueï¿½Ç·ï¿½Ç¿ï¿½
+     *  if not set ,return true;
+     *    if is null , return true;
+     *
+     *
+     **/
+    public static function checkEmpty($value)
+    {
+        if (! isset( $value )) {
+            return true;
+        }
+        if ($value === null) {
+            return true;
+        }
+        if (trim($value) === "") {
+            return true;
+        }
 
-	/**
-	 * ¼ìÑé×Ö¶ÎfieldNameµÄÖµvalue µÄ×î´óÖµ
-	 *
-	 **/
-	public static function checkMaxValue($value,$maxValue,$fieldName){	
+        return false;
+    }
 
-		if(self::checkEmpty($value))
-			return ;
 
-		self::checkNumeric($value,$fieldName);
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½fieldNameï¿½ï¿½Öµvalue ï¿½Ä³ï¿½ï¿½ï¿½
+     *
+     **/
+    public static function checkMaxLength($value, $maxLength, $fieldName)
+    {
+        if (! self::checkEmpty($value) && mb_strlen($value, "UTF-8") > $maxLength) {
+            throw new Exception("client-check-error:Invalid Arguments:the length of " . $fieldName . " can not be larger than " . $maxLength . ".",
+                41);
+        }
+    }
 
-		if($value > $maxValue){
-				throw new Exception("client-check-error:Invalid Arguments:the value of " . $fieldName . " can not be larger than " . $maxValue ." ." , 41);
-		}
-	}
 
-	/**
-	 * ¼ìÑé×Ö¶ÎfieldNameµÄÖµvalue µÄ×îÐ¡Öµ
-	 *
-	 **/
-	public static function checkMinValue($value,$minValue,$fieldName) {
-		
-		if(self::checkEmpty($value))
-			return ;
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½fieldNameï¿½ï¿½Öµvalueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð±?ï¿½ï¿½
+     *
+     **/
+    public static function checkMaxListSize($value, $maxSize, $fieldName)
+    {
 
-		self::checkNumeric($value,$fieldName);
-		
-		if($value < $minValue){
-				throw new Exception("client-check-error:Invalid Arguments:the value of " . $fieldName . " can not be less than " . $minValue . " ." , 41);
-		}
-	}
+        if (self::checkEmpty($value)) {
+            return;
+        }
 
-	/**
-	 * ¼ìÑé×Ö¶ÎfieldNameµÄÖµvalueÊÇ·ñÊÇnumber
-	 *
-	 **/
-	protected static function checkNumeric($value,$fieldName) {
-		if(!is_numeric($value))
-			throw new Exception("client-check-error:Invalid Arguments:the value of " . $fieldName . " is not number : " . $value . " ." , 41);
-	}
+        $list = preg_split("/,/", $value);
+        if (count($list) > $maxSize) {
+            throw new Exception("client-check-error:Invalid Arguments:the listsize(the string split by \",\") of " . $fieldName . " must be less than " . $maxSize . " .",
+                41);
+        }
+    }
 
-	/**
-	 * Ð£Ñé$valueÊÇ·ñ·Ç¿Õ
-	 *  if not set ,return true;
-	 *	if is null , return true;
-	 *	
-	 *
-	 **/
-	public static function checkEmpty($value) {
-		if(!isset($value))
-			return true ;
-		if($value === null )
-			return true;
-		if(trim($value) === "")
-			return true;
-		
-		return false;
-	}
+
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½fieldNameï¿½ï¿½Öµvalue ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+     *
+     **/
+    public static function checkMaxValue($value, $maxValue, $fieldName)
+    {
+
+        if (self::checkEmpty($value)) {
+            return;
+        }
+
+        self::checkNumeric($value, $fieldName);
+
+        if ($value > $maxValue) {
+            throw new Exception("client-check-error:Invalid Arguments:the value of " . $fieldName . " can not be larger than " . $maxValue . " .",
+                41);
+        }
+    }
+
+
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½fieldNameï¿½ï¿½Öµvalueï¿½Ç·ï¿½ï¿½ï¿½number
+     *
+     **/
+    protected static function checkNumeric($value, $fieldName)
+    {
+        if (! is_numeric($value)) {
+            throw new Exception("client-check-error:Invalid Arguments:the value of " . $fieldName . " is not number : " . $value . " .",
+                41);
+        }
+    }
+
+
+    /**
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Ö¶ï¿½fieldNameï¿½ï¿½Öµvalue ï¿½ï¿½ï¿½ï¿½Ð¡Öµ
+     *
+     **/
+    public static function checkMinValue($value, $minValue, $fieldName)
+    {
+
+        if (self::checkEmpty($value)) {
+            return;
+        }
+
+        self::checkNumeric($value, $fieldName);
+
+        if ($value < $minValue) {
+            throw new Exception("client-check-error:Invalid Arguments:the value of " . $fieldName . " can not be less than " . $minValue . " .",
+                41);
+        }
+    }
 
 }
+
 ?>

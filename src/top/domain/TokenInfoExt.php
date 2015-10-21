@@ -1,4 +1,6 @@
-<?php namespace TopClient\domain;
+<?php
+
+namespace TopClient\domain;
 
 /**
  * token info中的扩展字段
@@ -6,10 +8,11 @@
  */
 class TokenInfoExt
 {
-	
-	/** 
-	 * open account当前token info中open account id对应的open account信息
-	 **/
-	public $openAccount;	
+
+    /**
+     * open account当前token info中open account id对应的open account信息
+     **/
+    public $openAccount;
 }
+
 ?>

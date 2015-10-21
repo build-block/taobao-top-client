@@ -19,16 +19,16 @@ class OpenSmsSendvercodeRequest
     private $apiParas = [ ];
 
 
+    public function getSendVerCodeRequest()
+    {
+        return $this->sendVerCodeRequest;
+    }
+
+
     public function setSendVerCodeRequest($sendVerCodeRequest)
     {
         $this->sendVerCodeRequest                = $sendVerCodeRequest;
         $this->apiParas["send_ver_code_request"] = $sendVerCodeRequest;
-    }
-
-
-    public function getSendVerCodeRequest()
-    {
-        return $this->sendVerCodeRequest;
     }
 
 
