@@ -1,6 +1,4 @@
-<?php
-
-namespace TopClient\domain;
+<?php namespace TopClient\domain;
 
 /**
  * 淘宝客商品

@@ -1,14 +1,14 @@
  {
-    "name": "orzcc/taobao-top-client",
+    "name": "remxcode/taobao-top-client",
     "type": "library",
     "description": "Taobao top client(SDK) for laravel 5.1",
     "keywords": ["taobao", "laravel", "sdk", "api"],
-    "homepage": "https://github.com/orzcc/taobao-top-client",
+    "homepage": "https://github.com/remxcode/taobao-top-client",
     "license": "MIT",
     "authors": [
         {
-            "name": "orzcc",
-            "email": "orzcczh@gmail.com"
+            "name": "remxcode",
+            "email": "remx@foxmail.com"
         }
     ],
     "require": {
@@ -17,7 +17,7 @@
     },
     "autoload": {
       "psr-4": {
-        "Orzcc\\TopClient\\": "src/",
+        "Remxcode\\TopClient\\": "src/",
         "TopClient\\": "src/top/"
       }
     }

@@ -1,4 +1,4 @@
-<?php namespace Orzcc\TopClient\Facades;
+<?php namespace Remxcode\TopClient\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

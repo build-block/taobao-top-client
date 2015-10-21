@@ -1,6 +1,4 @@
-<?php
-
-namespace TopClient\request;
+<?php namespace TopClient\request;
 
 use TopClient\RequestCheckUtil;
 

@@ -1,5 +1,5 @@
 <?php
-namespace Orzcc\TopClient;
+namespace Remxcode\TopClient;
 
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
@@ -47,7 +47,7 @@ class TopClientServiceProvider extends ServiceProvider {
         $app->singleton('topclient.factory', function ($app) {
             return new Factories\TopClientFactory();
         });
-        $app->alias('topclient.factory', 'Orzcc\TopClient\Factories\TopClientFactory');
+        $app->alias('topclient.factory', 'Remxcode\TopClient\Factories\TopClientFactory');
     }
     /**
      * Register the manager class.
@@ -63,7 +63,7 @@ class TopClientServiceProvider extends ServiceProvider {
             $factory = $app['topclient.factory'];
             return new TopClientManager($config, $factory);
         });
-        $app->alias('topclient', 'Orzcc\TopClient\TopClientManager');
+        $app->alias('topclient', 'Remxcode\TopClient\TopClientManager');
     }
     /**
      * Get the services provided by the provider.

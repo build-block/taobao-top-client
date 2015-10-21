@@ -1,9 +1,5 @@
 <?php
-
 namespace TopClient;
-
-use TopClient\ResultSet;
-use TopClient\domain\Utilities\AssertUtils;
 
 class TopClient
 {
@@ -27,6 +23,11 @@ class TopClient
 	protected $apiVersion = "2.0";
 
 	protected $sdkVersion = "top-sdk-php-20150308";
+
+	public function __construct($appkey = "",$secretKey = ""){
+		$this->appkey = $appkey;
+		$this->secretKey = $secretKey ;
+	}
 
 	protected function generateSign($params)
 	{
@@ -110,7 +111,27 @@ class TopClient
 		return $reponse;
 	}
 
-	public function execute($request, $session = null)
+	protected function logCommunicationError($apiName, $requestUrl, $errorCode, $responseTxt)
+	{
+		$localIp = isset($_SERVER["SERVER_ADDR"]) ? $_SERVER["SERVER_ADDR"] : "CLI";
+		$logger = new TopLogger;
+		$logger->conf["log_file"] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_comm_err_" . $this->appkey . "_" . date("Y-m-d") . ".log";
+		$logger->conf["separator"] = "^_^";
+		$logData = array(
+		date("Y-m-d H:i:s"),
+		$apiName,
+		$this->appkey,
+		$localIp,
+		PHP_OS,
+		$this->sdkVersion,
+		$requestUrl,
+		$errorCode,
+		str_replace("\n","",$responseTxt)
+		);
+		$logger->log($logData);
+	}
+
+	public function execute($request, $session = null,$bestUrl = null)
 	{
 		$result =  new ResultSet(); 
 		if($this->checkRequest) {
@@ -130,7 +151,6 @@ class TopClient
 		$sysParams["sign_method"] = $this->signMethod;
 		$sysParams["method"] = $request->getApiMethodName();
 		$sysParams["timestamp"] = date("Y-m-d H:i:s");
-		$sysParams["partner_id"] = $this->sdkVersion;
 		if (null != $session)
 		{
 			$sysParams["session"] = $session;
@@ -139,15 +159,24 @@ class TopClient
 		//获取业务参数
 		$apiParams = $request->getApiParas();
 
+
+		//系统参数放入GET请求串
+		if($bestUrl){
+			$requestUrl = $bestUrl."?";
+			$sysParams["partner_id"] = $this->getClusterTag();
+		}else{
+			$requestUrl = $this->gatewayUrl."?";
+			$sysParams["partner_id"] = $this->sdkVersion;
+		}
 		//签名
 		$sysParams["sign"] = $this->generateSign(array_merge($apiParams, $sysParams));
 
-		//系统参数放入GET请求串
-		$requestUrl = $this->gatewayUrl . "?";
 		foreach ($sysParams as $sysParamKey => $sysParamValue)
 		{
+			// if(strcmp($sysParamKey,"timestamp") != 0)
 			$requestUrl .= "$sysParamKey=" . urlencode($sysParamValue) . "&";
 		}
+		// $requestUrl .= "timestamp=" . urlencode($sysParams["timestamp"]) . "&";
 		$requestUrl = substr($requestUrl, 0, -1);
 
 		//发起HTTP请求
@@ -157,6 +186,7 @@ class TopClient
 		}
 		catch (Exception $e)
 		{
+			$this->logCommunicationError($sysParams["method"],$requestUrl,"HTTP_ERROR_" . $e->getCode(),$e->getMessage());
 			$result->code = $e->getCode();
 			$result->msg = $e->getMessage();
 			return $result;
@@ -188,6 +218,7 @@ class TopClient
 		//返回的HTTP文本不是标准JSON或者XML，记下错误日志
 		if (false === $respWellFormed)
 		{
+			$this->logCommunicationError($sysParams["method"],$requestUrl,"HTTP_RESPONSE_NOT_WELL_FORMED",$resp);
 			$result->code = 0;
 			$result->msg = "HTTP_RESPONSE_NOT_WELL_FORMED";
 			return $result;
@@ -196,7 +227,12 @@ class TopClient
 		//如果TOP返回了错误码，记录到业务错误日志中
 		if (isset($respObject->code))
 		{
-			// 剔除记录日志 by orzcc 20150703
+			$logger = new TopLogger;
+			$logger->conf["log_file"] = rtrim(TOP_SDK_WORK_DIR, '\\/') . '/' . "logs/top_biz_err_" . $this->appkey . "_" . date("Y-m-d") . ".log";
+			$logger->log(array(
+				date("Y-m-d H:i:s"),
+				$resp
+			));
 		}
 		return $respObject;
 	}
@@ -231,4 +267,9 @@ class TopClient
 		}
 		return $this->execute($req, $session);
 	}
+
+	private function getClusterTag()
+    {
+	    return substr($this->sdkVersion,0,11)."-cluster".substr($this->sdkVersion,11);
+    }
 }

@@ -1,5 +1,5 @@
 <?php
-namespace Orzcc\TopClient\Factories;
+namespace Remxcode\TopClient\Factories;
 
 use TopClient\TopClient;
 

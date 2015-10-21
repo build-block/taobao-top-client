@@ -1,8 +1,5 @@
 <?php
-
 namespace TopClient;
-
-use TopClient\RequestCheckUtil;
 
 /**
  * API入参静态检查类

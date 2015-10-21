@@ -1,6 +1,4 @@
-<?php
-
-namespace TopClient\domain;
+<?php namespace TopClient\domain;
 
 /**
  * 用户地址
