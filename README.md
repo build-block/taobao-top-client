@@ -22,7 +22,7 @@ $send_ver_code_request->signatureId="123";
 $send_ver_code_request->sessionId="demo";
 $send_ver_code_request->domain="demo";
 $send_ver_code_request->deviceId="demo";
-$send_ver_code_request->mobile=$mobile;
+$send_ver_code_request->mobile=13800138000;
 $send_ver_code_request= json_encode($send_ver_code_request,JSON_UNESCAPED_UNICODE);
 $req->setSendVerCodeRequest($send_ver_code_request);
 $resp = $topclient->execute($req);
