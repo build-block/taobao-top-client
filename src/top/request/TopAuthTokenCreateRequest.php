@@ -11,49 +11,49 @@ namespace TopClient\request;
 class TopAuthTokenCreateRequest
 {
 
-	/**
-	 * 授权code，grantType==authorization_code 时需要
-	 **/
-	private $code;
+    /**
+     * 授权code，grantType==authorization_code 时需要
+     **/
+    private $code;
 
-	private $apiParas = [ ];
-
-
-	public function getCode()
-	{
-		return $this->code;
-	}
+    private $apiParas = [ ];
 
 
-	public function setCode($code)
-	{
-		$this->code             = $code;
-		$this->apiParas["code"] = $code;
-	}
+    public function getCode()
+    {
+        return $this->code;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.top.auth.token.create";
-	}
+    public function setCode($code)
+    {
+        $this->code             = $code;
+        $this->apiParas["code"] = $code;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.top.auth.token.create";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-		RequestCheckUtil::checkNotNull($this->code, "code");
-	}
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->code, "code");
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

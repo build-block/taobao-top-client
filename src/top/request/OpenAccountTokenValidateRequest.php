@@ -11,49 +11,49 @@ namespace TopClient\request;
 class OpenAccountTokenValidateRequest
 {
 
-	/**
-	 * token
-	 **/
-	private $paramToken;
+    /**
+     * token
+     **/
+    private $paramToken;
 
-	private $apiParas = [ ];
-
-
-	public function getParamToken()
-	{
-		return $this->paramToken;
-	}
+    private $apiParas = [ ];
 
 
-	public function setParamToken($paramToken)
-	{
-		$this->paramToken              = $paramToken;
-		$this->apiParas["param_token"] = $paramToken;
-	}
+    public function getParamToken()
+    {
+        return $this->paramToken;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.open.account.token.validate";
-	}
+    public function setParamToken($paramToken)
+    {
+        $this->paramToken              = $paramToken;
+        $this->apiParas["param_token"] = $paramToken;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.open.account.token.validate";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-		RequestCheckUtil::checkNotNull($this->paramToken, "paramToken");
-	}
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->paramToken, "paramToken");
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

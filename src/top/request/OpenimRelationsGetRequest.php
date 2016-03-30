@@ -11,86 +11,86 @@ namespace TopClient\request;
 class OpenimRelationsGetRequest
 {
 
-	/**
-	 * 查询起始日期。格式yyyyMMdd。不得早于一个月
-	 **/
-	private $begDate;
+    /**
+     * 查询起始日期。格式yyyyMMdd。不得早于一个月
+     **/
+    private $begDate;
 
-	/**
-	 * 查询结束日期。格式yyyyMMdd。不得早于一个月
-	 **/
-	private $endDate;
+    /**
+     * 查询结束日期。格式yyyyMMdd。不得早于一个月
+     **/
+    private $endDate;
 
-	/**
-	 * 用户信息
-	 **/
-	private $user;
+    /**
+     * 用户信息
+     **/
+    private $user;
 
-	private $apiParas = [ ];
-
-
-	public function getBegDate()
-	{
-		return $this->begDate;
-	}
+    private $apiParas = [ ];
 
 
-	public function setBegDate($begDate)
-	{
-		$this->begDate              = $begDate;
-		$this->apiParas["beg_date"] = $begDate;
-	}
+    public function getBegDate()
+    {
+        return $this->begDate;
+    }
 
 
-	public function getEndDate()
-	{
-		return $this->endDate;
-	}
+    public function setBegDate($begDate)
+    {
+        $this->begDate              = $begDate;
+        $this->apiParas["beg_date"] = $begDate;
+    }
 
 
-	public function setEndDate($endDate)
-	{
-		$this->endDate              = $endDate;
-		$this->apiParas["end_date"] = $endDate;
-	}
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
 
 
-	public function getUser()
-	{
-		return $this->user;
-	}
+    public function setEndDate($endDate)
+    {
+        $this->endDate              = $endDate;
+        $this->apiParas["end_date"] = $endDate;
+    }
 
 
-	public function setUser($user)
-	{
-		$this->user             = $user;
-		$this->apiParas["user"] = $user;
-	}
+    public function getUser()
+    {
+        return $this->user;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.openim.relations.get";
-	}
+    public function setUser($user)
+    {
+        $this->user             = $user;
+        $this->apiParas["user"] = $user;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.openim.relations.get";
+    }
 
 
-	public function check()
-	{
-
-		RequestCheckUtil::checkNotNull($this->begDate, "begDate");
-		RequestCheckUtil::checkNotNull($this->endDate, "endDate");
-	}
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->begDate, "begDate");
+        RequestCheckUtil::checkNotNull($this->endDate, "endDate");
+    }
+
+
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

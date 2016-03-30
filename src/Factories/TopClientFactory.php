@@ -1,4 +1,5 @@
 <?php
+
 namespace Remxcode\TopClient\Factories;
 
 use TopClient\TopClient;
@@ -32,7 +33,7 @@ class TopClientFactory
      */
     protected function getConfig(array $config)
     {
-        if (! array_key_exists('app_key', $config) || ! array_key_exists('app_secret', $config)) {
+        if ( ! array_key_exists('app_key', $config) || ! array_key_exists('app_secret', $config)) {
             throw new \InvalidArgumentException('The top client requires api keys.');
         }
 

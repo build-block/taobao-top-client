@@ -27,7 +27,7 @@ class ClusterTopClient extends TopClient
             unset( $tmpConfig );
 
             ClusterTopClient::$syncDate = $saveConfig['syncDate'];
-            if (! ClusterTopClient::$syncDate) {
+            if ( ! ClusterTopClient::$syncDate) {
                 ClusterTopClient::$syncDate = 0;
             }
         }
@@ -83,11 +83,11 @@ class ClusterTopClient extends TopClient
         if (ClusterTopClient::$cfgDuration) {
             return ClusterTopClient::$cfgDuration;
         }
-        if (! ClusterTopClient::$dnsconfig) {
+        if ( ! ClusterTopClient::$dnsconfig) {
             return ClusterTopClient::$cfgDuration;
         }
         $config = json_encode(ClusterTopClient::$dnsconfig);
-        if (! $config) {
+        if ( ! $config) {
             return ClusterTopClient::$cfgDuration;
         }
         $config                        = ClusterTopClient::$dnsconfig['config'];
@@ -210,15 +210,15 @@ class ClusterTopClient extends TopClient
     private function getVipByEnv($comUrl, $currentEnv)
     {
         $urlSchema = parse_url($comUrl);
-        if (! $urlSchema) {
+        if ( ! $urlSchema) {
             return null;
         }
-        if (! array_key_exists($currentEnv, ClusterTopClient::$dnsconfig['env'])) {
+        if ( ! array_key_exists($currentEnv, ClusterTopClient::$dnsconfig['env'])) {
             return null;
         }
 
         $hostList = ClusterTopClient::$dnsconfig['env'][$currentEnv];
-        if (! $hostList) {
+        if ( ! $hostList) {
             return null;
         }
 

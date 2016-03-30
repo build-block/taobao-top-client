@@ -11,49 +11,49 @@ namespace TopClient\request;
 class TopatsTaskDeleteRequest
 {
 
-	/**
-	 * 需要取消的任务ID
-	 **/
-	private $taskId;
+    /**
+     * 需要取消的任务ID
+     **/
+    private $taskId;
 
-	private $apiParas = [ ];
-
-
-	public function getTaskId()
-	{
-		return $this->taskId;
-	}
+    private $apiParas = [ ];
 
 
-	public function setTaskId($taskId)
-	{
-		$this->taskId              = $taskId;
-		$this->apiParas["task_id"] = $taskId;
-	}
+    public function getTaskId()
+    {
+        return $this->taskId;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.topats.task.delete";
-	}
+    public function setTaskId($taskId)
+    {
+        $this->taskId              = $taskId;
+        $this->apiParas["task_id"] = $taskId;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.topats.task.delete";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-		RequestCheckUtil::checkNotNull($this->taskId, "taskId");
-	}
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->taskId, "taskId");
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

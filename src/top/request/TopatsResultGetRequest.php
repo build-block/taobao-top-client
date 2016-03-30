@@ -11,49 +11,49 @@ namespace TopClient\request;
 class TopatsResultGetRequest
 {
 
-	/**
-	 * 任务id号，创建任务时返回的task_id
-	 **/
-	private $taskId;
+    /**
+     * 任务id号，创建任务时返回的task_id
+     **/
+    private $taskId;
 
-	private $apiParas = [ ];
-
-
-	public function getTaskId()
-	{
-		return $this->taskId;
-	}
+    private $apiParas = [ ];
 
 
-	public function setTaskId($taskId)
-	{
-		$this->taskId              = $taskId;
-		$this->apiParas["task_id"] = $taskId;
-	}
+    public function getTaskId()
+    {
+        return $this->taskId;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.topats.result.get";
-	}
+    public function setTaskId($taskId)
+    {
+        $this->taskId              = $taskId;
+        $this->apiParas["task_id"] = $taskId;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.topats.result.get";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-		RequestCheckUtil::checkNotNull($this->taskId, "taskId");
-	}
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->taskId, "taskId");
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

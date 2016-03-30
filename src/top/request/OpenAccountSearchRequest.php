@@ -11,49 +11,49 @@ namespace TopClient\request;
 class OpenAccountSearchRequest
 {
 
-	/**
-	 * solr查询
-	 **/
-	private $query;
+    /**
+     * solr查询
+     **/
+    private $query;
 
-	private $apiParas = [ ];
-
-
-	public function getQuery()
-	{
-		return $this->query;
-	}
+    private $apiParas = [ ];
 
 
-	public function setQuery($query)
-	{
-		$this->query             = $query;
-		$this->apiParas["query"] = $query;
-	}
+    public function getQuery()
+    {
+        return $this->query;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.open.account.search";
-	}
+    public function setQuery($query)
+    {
+        $this->query             = $query;
+        $this->apiParas["query"] = $query;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.open.account.search";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-		RequestCheckUtil::checkNotNull($this->query, "query");
-	}
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->query, "query");
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

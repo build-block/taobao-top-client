@@ -1,4 +1,6 @@
-<?php namespace Remxcode\TopClient\Facades;
+<?php
+
+namespace Remxcode\TopClient\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

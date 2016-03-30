@@ -11,48 +11,48 @@ namespace TopClient\request;
 class OpenimImmsgPushRequest
 {
 
-	/**
-	 * openim消息结构体
-	 **/
-	private $immsg;
+    /**
+     * openim消息结构体
+     **/
+    private $immsg;
 
-	private $apiParas = [ ];
-
-
-	public function getImmsg()
-	{
-		return $this->immsg;
-	}
+    private $apiParas = [ ];
 
 
-	public function setImmsg($immsg)
-	{
-		$this->immsg             = $immsg;
-		$this->apiParas["immsg"] = $immsg;
-	}
+    public function getImmsg()
+    {
+        return $this->immsg;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.openim.immsg.push";
-	}
+    public function setImmsg($immsg)
+    {
+        $this->immsg             = $immsg;
+        $this->apiParas["immsg"] = $immsg;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.openim.immsg.push";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-	}
+
+    public function check()
+    {
+
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

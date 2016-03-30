@@ -11,48 +11,48 @@ namespace TopClient\request;
 class OpenimCustmsgPushRequest
 {
 
-	/**
-	 * 自定义消息内容
-	 **/
-	private $custmsg;
+    /**
+     * 自定义消息内容
+     **/
+    private $custmsg;
 
-	private $apiParas = [ ];
-
-
-	public function getCustmsg()
-	{
-		return $this->custmsg;
-	}
+    private $apiParas = [ ];
 
 
-	public function setCustmsg($custmsg)
-	{
-		$this->custmsg             = $custmsg;
-		$this->apiParas["custmsg"] = $custmsg;
-	}
+    public function getCustmsg()
+    {
+        return $this->custmsg;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.openim.custmsg.push";
-	}
+    public function setCustmsg($custmsg)
+    {
+        $this->custmsg             = $custmsg;
+        $this->apiParas["custmsg"] = $custmsg;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.openim.custmsg.push";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-	}
+
+    public function check()
+    {
+
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

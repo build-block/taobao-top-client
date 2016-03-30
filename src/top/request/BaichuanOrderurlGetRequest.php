@@ -11,48 +11,48 @@ namespace TopClient\request;
 class BaichuanOrderurlGetRequest
 {
 
-	/**
-	 * name
-	 **/
-	private $name;
+    /**
+     * name
+     **/
+    private $name;
 
-	private $apiParas = [ ];
-
-
-	public function getName()
-	{
-		return $this->name;
-	}
+    private $apiParas = [ ];
 
 
-	public function setName($name)
-	{
-		$this->name             = $name;
-		$this->apiParas["name"] = $name;
-	}
+    public function getName()
+    {
+        return $this->name;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.baichuan.orderurl.get";
-	}
+    public function setName($name)
+    {
+        $this->name             = $name;
+        $this->apiParas["name"] = $name;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.baichuan.orderurl.get";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-	}
+
+    public function check()
+    {
+
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

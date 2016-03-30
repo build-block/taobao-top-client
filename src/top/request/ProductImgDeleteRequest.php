@@ -11,68 +11,68 @@ namespace TopClient\request;
 class ProductImgDeleteRequest
 {
 
-	/**
-	 * 非主图ID
-	 **/
-	private $id;
+    /**
+     * 非主图ID
+     **/
+    private $id;
 
-	/**
-	 * 产品ID.Product的id,通过taobao.product.add接口新增产品的时候会返回id.
-	 **/
-	private $productId;
+    /**
+     * 产品ID.Product的id,通过taobao.product.add接口新增产品的时候会返回id.
+     **/
+    private $productId;
 
-	private $apiParas = [ ];
-
-
-	public function getId()
-	{
-		return $this->id;
-	}
+    private $apiParas = [ ];
 
 
-	public function setId($id)
-	{
-		$this->id             = $id;
-		$this->apiParas["id"] = $id;
-	}
+    public function getId()
+    {
+        return $this->id;
+    }
 
 
-	public function getProductId()
-	{
-		return $this->productId;
-	}
+    public function setId($id)
+    {
+        $this->id             = $id;
+        $this->apiParas["id"] = $id;
+    }
 
 
-	public function setProductId($productId)
-	{
-		$this->productId              = $productId;
-		$this->apiParas["product_id"] = $productId;
-	}
+    public function getProductId()
+    {
+        return $this->productId;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.product.img.delete";
-	}
+    public function setProductId($productId)
+    {
+        $this->productId              = $productId;
+        $this->apiParas["product_id"] = $productId;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.product.img.delete";
+    }
 
 
-	public function check()
-	{
-
-		RequestCheckUtil::checkNotNull($this->id, "id");
-		RequestCheckUtil::checkNotNull($this->productId, "productId");
-	}
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->id, "id");
+        RequestCheckUtil::checkNotNull($this->productId, "productId");
+    }
+
+
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

@@ -11,67 +11,67 @@ namespace TopClient\request;
 class OpenimTribeGetmembersRequest
 {
 
-	/**
-	 * 群id
-	 **/
-	private $tribeId;
+    /**
+     * 群id
+     **/
+    private $tribeId;
 
-	/**
-	 * 用户信息
-	 **/
-	private $user;
+    /**
+     * 用户信息
+     **/
+    private $user;
 
-	private $apiParas = [ ];
-
-
-	public function getTribeId()
-	{
-		return $this->tribeId;
-	}
+    private $apiParas = [ ];
 
 
-	public function setTribeId($tribeId)
-	{
-		$this->tribeId              = $tribeId;
-		$this->apiParas["tribe_id"] = $tribeId;
-	}
+    public function getTribeId()
+    {
+        return $this->tribeId;
+    }
 
 
-	public function getUser()
-	{
-		return $this->user;
-	}
+    public function setTribeId($tribeId)
+    {
+        $this->tribeId              = $tribeId;
+        $this->apiParas["tribe_id"] = $tribeId;
+    }
 
 
-	public function setUser($user)
-	{
-		$this->user             = $user;
-		$this->apiParas["user"] = $user;
-	}
+    public function getUser()
+    {
+        return $this->user;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.openim.tribe.getmembers";
-	}
+    public function setUser($user)
+    {
+        $this->user             = $user;
+        $this->apiParas["user"] = $user;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.openim.tribe.getmembers";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-		RequestCheckUtil::checkNotNull($this->tribeId, "tribeId");
-	}
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->tribeId, "tribeId");
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

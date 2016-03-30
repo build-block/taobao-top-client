@@ -11,30 +11,30 @@ namespace TopClient\request;
 class TimeGetRequest
 {
 
-	private $apiParas = [ ];
+    private $apiParas = [ ];
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.time.get";
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.time.get";
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
 
-	public function check()
-	{
+    public function check()
+    {
 
-	}
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

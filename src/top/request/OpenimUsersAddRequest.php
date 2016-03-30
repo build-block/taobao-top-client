@@ -11,48 +11,48 @@ namespace TopClient\request;
 class OpenimUsersAddRequest
 {
 
-	/**
-	 * 用户信息列表
-	 **/
-	private $userinfos;
+    /**
+     * 用户信息列表
+     **/
+    private $userinfos;
 
-	private $apiParas = [ ];
-
-
-	public function getUserinfos()
-	{
-		return $this->userinfos;
-	}
+    private $apiParas = [ ];
 
 
-	public function setUserinfos($userinfos)
-	{
-		$this->userinfos             = $userinfos;
-		$this->apiParas["userinfos"] = $userinfos;
-	}
+    public function getUserinfos()
+    {
+        return $this->userinfos;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.openim.users.add";
-	}
+    public function setUserinfos($userinfos)
+    {
+        $this->userinfos             = $userinfos;
+        $this->apiParas["userinfos"] = $userinfos;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.openim.users.add";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-	}
+
+    public function check()
+    {
+
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

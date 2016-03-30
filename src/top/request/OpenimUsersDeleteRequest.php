@@ -11,50 +11,50 @@ namespace TopClient\request;
 class OpenimUsersDeleteRequest
 {
 
-	/**
-	 * 需要删除的用户列表，多个用户用半角逗号分隔，最多一次可以删除100个用户
-	 **/
-	private $userids;
+    /**
+     * 需要删除的用户列表，多个用户用半角逗号分隔，最多一次可以删除100个用户
+     **/
+    private $userids;
 
-	private $apiParas = [ ];
-
-
-	public function getUserids()
-	{
-		return $this->userids;
-	}
+    private $apiParas = [ ];
 
 
-	public function setUserids($userids)
-	{
-		$this->userids             = $userids;
-		$this->apiParas["userids"] = $userids;
-	}
+    public function getUserids()
+    {
+        return $this->userids;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.openim.users.delete";
-	}
+    public function setUserids($userids)
+    {
+        $this->userids             = $userids;
+        $this->apiParas["userids"] = $userids;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.openim.users.delete";
+    }
 
 
-	public function check()
-	{
-
-		RequestCheckUtil::checkNotNull($this->userids, "userids");
-		RequestCheckUtil::checkMaxListSize($this->userids, 100, "userids");
-	}
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->userids, "userids");
+        RequestCheckUtil::checkMaxListSize($this->userids, 100, "userids");
+    }
+
+
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

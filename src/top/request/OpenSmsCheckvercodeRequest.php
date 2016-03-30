@@ -11,48 +11,48 @@ namespace TopClient\request;
 class OpenSmsCheckvercodeRequest
 {
 
-	/**
-	 * 验证验证码
-	 **/
-	private $checkVerCodeRequest;
+    /**
+     * 验证验证码
+     **/
+    private $checkVerCodeRequest;
 
-	private $apiParas = [ ];
-
-
-	public function getCheckVerCodeRequest()
-	{
-		return $this->checkVerCodeRequest;
-	}
+    private $apiParas = [ ];
 
 
-	public function setCheckVerCodeRequest($checkVerCodeRequest)
-	{
-		$this->checkVerCodeRequest                = $checkVerCodeRequest;
-		$this->apiParas["check_ver_code_request"] = $checkVerCodeRequest;
-	}
+    public function getCheckVerCodeRequest()
+    {
+        return $this->checkVerCodeRequest;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.open.sms.checkvercode";
-	}
+    public function setCheckVerCodeRequest($checkVerCodeRequest)
+    {
+        $this->checkVerCodeRequest                = $checkVerCodeRequest;
+        $this->apiParas["check_ver_code_request"] = $checkVerCodeRequest;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.open.sms.checkvercode";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-	}
+
+    public function check()
+    {
+
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

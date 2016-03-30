@@ -11,48 +11,48 @@ namespace TopClient\request;
 class OauthCodeCreateRequest
 {
 
-	/**
-	 * mock param
-	 **/
-	private $test;
+    /**
+     * mock param
+     **/
+    private $test;
 
-	private $apiParas = [ ];
-
-
-	public function getTest()
-	{
-		return $this->test;
-	}
+    private $apiParas = [ ];
 
 
-	public function setTest($test)
-	{
-		$this->test             = $test;
-		$this->apiParas["test"] = $test;
-	}
+    public function getTest()
+    {
+        return $this->test;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.oauth.code.create";
-	}
+    public function setTest($test)
+    {
+        $this->test             = $test;
+        $this->apiParas["test"] = $test;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.oauth.code.create";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-	}
+
+    public function check()
+    {
+
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }

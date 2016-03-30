@@ -11,67 +11,67 @@ namespace TopClient\request;
 class OpenimIoscertSandboxSetRequest
 {
 
-	/**
-	 * 证书内容,base64编码
-	 **/
-	private $cert;
+    /**
+     * 证书内容,base64编码
+     **/
+    private $cert;
 
-	/**
-	 * 系统自动生成
-	 **/
-	private $password;
+    /**
+     * 系统自动生成
+     **/
+    private $password;
 
-	private $apiParas = [ ];
-
-
-	public function getCert()
-	{
-		return $this->cert;
-	}
+    private $apiParas = [ ];
 
 
-	public function setCert($cert)
-	{
-		$this->cert             = $cert;
-		$this->apiParas["cert"] = $cert;
-	}
+    public function getCert()
+    {
+        return $this->cert;
+    }
 
 
-	public function getPassword()
-	{
-		return $this->password;
-	}
+    public function setCert($cert)
+    {
+        $this->cert             = $cert;
+        $this->apiParas["cert"] = $cert;
+    }
 
 
-	public function setPassword($password)
-	{
-		$this->password             = $password;
-		$this->apiParas["password"] = $password;
-	}
+    public function getPassword()
+    {
+        return $this->password;
+    }
 
 
-	public function getApiMethodName()
-	{
-		return "taobao.openim.ioscert.sandbox.set";
-	}
+    public function setPassword($password)
+    {
+        $this->password             = $password;
+        $this->apiParas["password"] = $password;
+    }
 
 
-	public function getApiParas()
-	{
-		return $this->apiParas;
-	}
+    public function getApiMethodName()
+    {
+        return "taobao.openim.ioscert.sandbox.set";
+    }
 
 
-	public function check()
-	{
+    public function getApiParas()
+    {
+        return $this->apiParas;
+    }
 
-		RequestCheckUtil::checkNotNull($this->cert, "cert");
-	}
+
+    public function check()
+    {
+
+        RequestCheckUtil::checkNotNull($this->cert, "cert");
+    }
 
 
-	public function putOtherTextParam($key, $value)
-	{
-		$this->apiParas[$key] = $value;
-		$this->$key           = $value;
-	}
+    public function putOtherTextParam($key, $value)
+    {
+        $this->apiParas[$key] = $value;
+        $this->$key           = $value;
+    }
 }
