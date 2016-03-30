@@ -29,6 +29,23 @@ class ServiceProvider extends baseServiceProvider
         $source = realpath(__DIR__ . '/../config/taobaotop.php');
         $this->publishes([ $source => config_path('taobaotop.php') ]);
         $this->mergeConfigFrom($source, 'taobaotop');
+        $this->defineConstant();
+    }
+
+    protected function defineConstant()
+    {
+        /**
+         * 定义常量开始
+         * 在include("TopSdk.php")之前定义这些常量，不要直接修改本文件，以利于升级覆盖
+         */
+        /**
+         * SDK工作目录
+         * 存放日志，TOP缓存数据
+         */
+        if (!defined("TOP_SDK_WORK_DIR"))
+        {
+            define("TOP_SDK_WORK_DIR", "/tmp/");
+        }
     }
 
 
