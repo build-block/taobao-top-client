@@ -6,7 +6,7 @@ use GrahamCampbell\Manager\AbstractManager;
 use Illuminate\Contracts\Config\Repository;
 use Remxcode\TopClient\Factories\TopClientFactory;
 
-class TopClientManager extends AbstractManager
+class Manager extends AbstractManager
 {
 
     protected $factory;

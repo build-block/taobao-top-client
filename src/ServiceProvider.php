@@ -3,9 +3,9 @@
 namespace Remxcode\TopClient;
 
 use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\ServiceProvider as baseServiceProvider;
 
-class TopClientServiceProvider extends ServiceProvider
+class ServiceProvider extends baseServiceProvider
 {
 
     /**
@@ -73,9 +73,9 @@ class TopClientServiceProvider extends ServiceProvider
             $config  = $app['config'];
             $factory = $app['topclient.factory'];
 
-            return new TopClientManager($config, $factory);
+            return new Manager($config, $factory);
         });
-        $app->alias('topclient', 'Remxcode\TopClient\TopClientManager');
+        $app->alias('topclient', 'Remxcode\TopClient\Manager');
     }
 
 
