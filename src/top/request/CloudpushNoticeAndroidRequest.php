@@ -2,6 +2,7 @@
 
 namespace TopClient\request;
 
+use TopClient\RequestCheckUtil;
 /**
  * TOP API: taobao.cloudpush.notice.android request
  *
